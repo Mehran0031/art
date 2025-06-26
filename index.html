@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehran - Digital Artist & Music Producer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brown-gold: #C6A581;
+            --royal-blue: #223262;
+            --off-white: #F1EEEF;
+            --dark-gray: #262421;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--off-white);
+            color: var(--dark-gray);
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: var(--royal-blue);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--brown-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .logo span {
+            color: var(--off-white);
+            font-weight: 300;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--off-white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brown-gold);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--brown-gold);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(rgba(34, 50, 98, 0.85), rgba(38, 36, 33, 0.85)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23C6A581" stroke-width="0.5" stroke-dasharray="5,5"/></svg>');
+            background-size: cover;
+            text-align: center;
+            color: var(--off-white);
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin: 0 auto 40px;
+            color: var(--brown-gold);
+        }
+        
+        .hero-subtitle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background: rgba(198, 165, 129, 0.2);
+            border: 1px solid var(--brown-gold);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--off-white);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--royal-blue);
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--brown-gold);
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-image {
+            flex: 1;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--royal-blue);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            color: var(--brown-gold);
+            font-weight: 600;
+        }
+        
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background: linear-gradient(to right, var(--royal-blue), #1a2a4a);
+            color: var(--off-white);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .skill-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(198, 165, 129, 0.3);
+            border-radius: 10px;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--brown-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--brown-gold);
+            margin-bottom: 20px;
+        }
+        
+        .skill-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background-color: var(--off-white);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-image {
+            height: 250px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 25px;
+            border-top: 4px solid var(--brown-gold);
+        }
+        
+        .project-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--royal-blue);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .project-content p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(rgba(34, 50, 98, 0.9), rgba(34, 50, 98, 0.9)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23C6A581" stroke-width="0.5" stroke-dasharray="5,5"/></svg>');
+            color: var(--off-white);
+            background-size: cover;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .contact-info {
+            padding: 30px;
+        }
+        
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--brown-gold);
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--brown-gold);
+            margin-top: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--brown-gold);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--brown-gold);
+            color: var(--dark-gray);
+            transform: translateY(-5px);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--brown-gold);
+            color: var(--royal-blue);
+            border: none;
+            padding: 14px 35px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: #b1926b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--brown-gold);
+            color: var(--brown-gold);
+        }
+        
+        .btn-outline:hover {
+            background: var(--brown-gold);
+            color: var(--royal-blue);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--off-white);
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--brown-gold);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--off-white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--brown-gold);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(241, 238, 239, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Pattern Overlay */
+        .pattern-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(198, 165, 129, 0.05) 0px, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(34, 50, 98, 0.05) 0px, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0 50px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pattern-overlay"></div>
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">MEHRAN<span>ART</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Over Mij</a></li>
+                        <li><a href="#skills">Vaardigheden</a></li>
+                        <li><a href="#projects">Projecten</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Digitale Kunst & Muziekproductie</h1>
+                <p>Waar technologie en creativiteit samenkomen in harmonie</p>
+                
+                <div class="hero-subtitle">
+                    <div class="tag">Sound Design</div>
+                    <div class="tag">Generatieve Kunst</div>
+                    <div class="tag">Audiovisuele Installaties</div>
+                    <div class="tag">Muziekproductie</div>
+                </div>
+                
+                <a href="#projects" class="btn" style="margin-top: 40px;">Bekijk Mijn Werk</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Artistieke Visie</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Mehran - Digital Artist">
+                </div>
+                <div class="about-text">
+                    <h3>Digitale Harmonie</h3>
+                    <p>Mijn naam is Mehran, een digitale kunstenaar en muziekproducent gespecialiseerd in het creëren van harmonieuze klanklandschappen en visuele ervaringen. Mijn werk is een reis door geluidslandschappen waar digitale precisie en organische emotie elkaar ontmoeten.</p>
+                    
+                    <p>Als oprichter van <span class="highlight">Digital Harmony Studio</span> streef ik naar de perfecte synthese van technologie en creativiteit. Mijn artistieke praktijk omvat muziekproductie, sound design, audiovisuele installaties en experimentele digitale kunst.</p>
+                    
+                    <p>Geïnspireerd door zowel de complexiteit van moderne technologie als de eenvoud van natuurlijke harmonie, verkent mijn werk de spanning tussen chaos en orde, tussen het kunstmatige en het organische. Elk project is een poging om <span class="highlight">digitale harmonie</span> te bereiken - een staat waarin verschillende elementen samenkomen om iets te creëren dat groter is dan de som der delen.</p>
+                    
+                    <p>Met een achtergrond in zowel muziek als visuele kunst, creëer ik ervaringen die de zintuigen prikkelen en de geest uitdagen. Mijn werk is te zien geweest in galeries, festivals en digitale platforms wereldwijd.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Artistieke Vaardigheden</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-music"></i></div>
+                    <h3>Muziek & Geluid</h3>
+                    <p>Elektronische muziekcompositie, sound design voor media, audio engineering & mastering, field recording & sampling, live elektronische performance, modulaire synthesizers.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Digitale Kunst</h3>
+                    <p>Generatieve kunst, audiovisuele installaties, projectiemapping, creative coding, interactieve kunst, 3D visualisatie, data-driven art.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Technologie</h3>
+                    <p>Max/MSP, Pure Data, TouchDesigner, Ableton Live Suite, Pro Tools, Logic Pro, Blender, Cinema 4D, WebGL & Three.js, Unity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Recent Werk</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Chronosynchronisatie">
+                    </div>
+                    <div class="project-content">
+                        <h3>Chronosynchronisatie</h3>
+                        <p>Audiovisuele installatie waarbij real-time weergegeven data van astronomische gebeurtenissen wordt omgezet in geluid en visuele patronen.</p>
+                        <a href="#" class="btn btn-outline">Meer Details</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Resonantie Cyclus">
+                    </div>
+                    <div class="project-content">
+                        <h3>Resonantie Cyclus</h3>
+                        <p>Een reeks elektronische composities die de resonantie-eigenschappen van verschillende materialen verkennen en omzetten in complexe ritmische patronen.</p>
+                        <a href="#" class="btn btn-outline">Meer Details</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1165&q=80" alt="Fractal Harmonieën">
+                    </div>
+                    <div class="project-content">
+                        <h3>Fractal Harmonieën</h3>
+                        <p>Interactieve webapplicatie die gebruikers in staat stelt om muzikale composities te creëren op basis van fractale geometrie.</p>
+                        <a href="#" class="btn btn-outline">Meer Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Neem Contact Op</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Laten we samenwerken</h3>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Studio Locatie</h4>
+                            <p>Digital Harmony Studio<br>Koepoortweg 2, Oosterhout</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@digitalharmony.studio</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Telefoon</h4>
+                            <p>+31 6 1234 5678</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Stuur een bericht</h3>
+                    <p>Ben je geïnteresseerd in een samenwerking, heb je vragen over mijn werk, of wil je meer weten over mijn diensten? Stuur me gerust een bericht!</p>
+                    
+                    <div style="margin-top: 30px;">
+                        <a href="mailto:info@digitalharmony.studio" class="btn">
+                            <i class="fas fa-paper-plane" style="margin-right: 10px;"></i> 
+                            Stuur een Email
+                        </a>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <a href="#" class="btn btn-outline">
+                            <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> 
+                            WhatsApp Bericht
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Digital Harmony Studio</h3>
+                    <p>Een creatieve ruimte waar geluid, visuele kunst en technologie samenkomen om unieke ervaringen te creëren die de zintuigen prikkelen en de geest uitdagen.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Snel Naar</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Over Mij</a></li>
+                        <li><a href="#skills">Vaardigheden</a></li>
+                        <li><a href="#projects">Projecten</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Diensten</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Muziekproductie</a></li>
+                        <li><a href="#">Sound Design</a></li>
+                        <li><a href="#">Audiovisuele Installaties</a></li>
+                        <li><a href="#">Digitale Kunst Commissies</a></li>
+                        <li><a href="#">Workshops & Training</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Digital Harmony Studio. Alle rechten voorbehouden. | Ontworpen met passie voor digitale harmonie</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
